@@ -1,5 +1,5 @@
 from web3 import Web3
-from utils import infura_provider_url
+from lib import infura_provider_url
 
 
 def check_slots(address: str, num_slots=10):

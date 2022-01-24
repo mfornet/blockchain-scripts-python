@@ -4,7 +4,7 @@ Get all events of type deposit and withdraw from NEAR using bigquery.
 Need to log in with google cloud to use this script.
 """
 
-from utils import persist_to_file
+from lib import persist_to_file
 from pprint import pprint
 from google.cloud import bigquery
 

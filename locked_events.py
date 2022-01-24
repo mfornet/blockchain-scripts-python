@@ -3,13 +3,13 @@ Get locked events from Locker contract in ethereum (using etherscan API)
 """
 
 from web3 import Web3
-from utils import infura_provider_url, persist_to_file
+from lib import infura_provider_url, persist_to_file
 from dotmap import DotMap
 import requests
 from rlp import decode
 from sha3 import keccak_256
 import os
-import utils
+import lib
 
 LOCKER_ADRESS = '0x23ddd3e3692d1861ed57ede224608875809e127f'
 URL_TEMPLATE = f"https://api.etherscan.io/api?module=account&action=txlist&address={LOCKER_ADRESS}&startblock=0&endblock=<HEIGHT>&sort=asc&apikey={os.environ['ETHERSCAN_API_KEY']}"

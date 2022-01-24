@@ -102,7 +102,11 @@ def check(receipt_id, base_light_client_head, verify_intermidates_values):
                 right_block_id, hash = get_range_forward(right_block_id, size)
                 hash = encode(hash).decode()
                 print(f"{step.hash} == {hash}: {step.hash == hash}")
-                # assert step.hash == hash
+
+                if step.hash != hash:
+                    print(
+                        f"ERR: Expected {decode(hash).hex()} Found {decode(step.hash).hex()}")
+                    # raise ValueError()
         else:
             raw = inner + value
 
@@ -110,7 +114,11 @@ def check(receipt_id, base_light_client_head, verify_intermidates_values):
                 left_block_id, hash = get_range_backward(left_block_id, size)
                 hash = encode(hash).decode()
                 print(f"{step.hash} == {hash}: {step.hash == hash}")
-                # assert step.hash == hash
+
+                if step.hash != hash:
+                    print(
+                        f"ERR: Expected {decode(hash).hex()} Found {decode(step.hash).hex()}")
+                    # raise ValueError()
 
         size *= 2
         value = hashlib.sha256(raw).digest()
@@ -185,6 +193,6 @@ def reconstruct(height, ordinal):
 
 
 if __name__ == '__main__':
-    receipt_id = 'GScx4eZKAaJ7gB6QtoTbepC8VkoPgVCZVptZb6irsK4T'
-    block_head = '3viYc7tdiMtfBkjytroUuEoSf8UMKQY8tDmcbwgGe8cG'
+    receipt_id = 'ERsxCWYs3GJpkd9RCT3s3HqBhjgCo98D68YDhGRAVJHC'
+    block_head = '9eRuULykhfeJJTvAN8zJHCpuAw4C4UpLMSWqeWnuGK9U'
     check(receipt_id, block_head, True)

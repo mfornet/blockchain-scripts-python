@@ -79,6 +79,7 @@ def find_blocks_for_txs(address: str):
             return
 
         if lo + 1 == hi:
+            print('>>', hi)
             heights.append(hi)
             return
 
@@ -93,7 +94,7 @@ def find_blocks_for_txs(address: str):
 
 
 def main():
-    address = '0x23b519fb0fb0a216db87bfe3c6a5d2a1e07b2ebe'
+    address = 'daa3172c59133b0860c050567b6a8322eea218eb'
     H = find_blocks_for_txs(address)
     print(H)
 

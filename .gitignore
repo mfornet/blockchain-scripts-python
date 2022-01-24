@@ -1,0 +1,14 @@
+__pycache__/
+
+.secret/
+.dat/
+.memo/
+
+.DS_Store
+.env
+
+# Remove this
+aurora_tx/
+contracts/
+debug-invalid-receipt/
+other/
